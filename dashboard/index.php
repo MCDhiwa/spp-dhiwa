@@ -51,26 +51,26 @@ $spp = mysqli_query($koneksi, "SELECT * FROM spp");
 
         <div class="col-div-3">
             <div class="box">
-                <p>67<br /><span>Customers</span></p>
+                <p><?= mysqli_num_rows($kelas) ?><br /><span>Kelas</span></p>
                 <i class="fa fa-users box-icon"></i>
             </div>
         </div>
         <div class="col-div-3">
             <div class="box">
-                <p>88<br /><span>Projects</span></p>
+                <p><?= mysqli_num_rows($petugas) ?><br /><span>Petugas</span></p>
                 <i class="fa fa-list box-icon"></i>
             </div>
         </div>
         <div class="col-div-3">
             <div class="box">
-                <p>99<br /><span>Orders</span></p>
-                <i class="fa fa-shopping-bag box-icon"></i>
+                <p><?= mysqli_num_rows($siswa) ?><br /><span>Siswa</span></p>
+                <i class="fa fa-tasks box-icon"></i>
             </div>
         </div>
         <div class="col-div-3">
             <div class="box">
-                <p>78<br /><span>Tasks</span></p>
-                <i class="fa fa-tasks box-icon"></i>
+                <p>0<br /><span>History</span></p>
+                <i class="fa fa-list-alt box-icon"></i>
             </div>
         </div>
     </div>

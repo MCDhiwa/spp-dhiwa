@@ -84,8 +84,10 @@ body {
   color: #8e8b8b;
 }
 .col-div-3 {
-  width: 25%;
+  width: 20%;
   float: left;
+  margin-left: 50px;
+  box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.1);
 }
 .box {
   width: 70%;

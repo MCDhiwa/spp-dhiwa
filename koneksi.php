@@ -1,4 +1,5 @@
 <?php
+session_start();
     $servername = "localhost";
     $username   = "root";
     $password   = "";
@@ -9,4 +10,3 @@
         die ("koneksi gagal: " .mysqli_connect_error());
     }
     echo "";
-?>

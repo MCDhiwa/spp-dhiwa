@@ -20,3 +20,9 @@ function readdata($result)
 
     return $rows;
 }
+
+function dd($data)
+{
+    var_dump($data);
+    die;
+}

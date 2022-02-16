@@ -14,6 +14,8 @@ $query = "INSERT INTO siswa VALUES ('$nisn', '$nis', '$password', '$nama', '$id_
 
 $result = mysqli_query($koneksi, $query);
 
+mysqli_close($koneksi);
+
 ?>
 
 <script type="text/javascript">

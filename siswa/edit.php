@@ -1,5 +1,11 @@
 <?php
 require_once '../templates/header.php';
+$query = "SELECT * FROM kelas";
+$result = mysqli_query($koneksi, $query);
+$read = readdata($result);
+$readSiswa = "SELECT * FROM spp";
+$resultSiswa = mysqli_query($koneksi, $readSiswa);
+$readd = readdata($resultSiswa);
 ?>
 <style>
     .in-container {
@@ -28,7 +34,7 @@ require_once '../templates/header.php';
         outline-color: #001e3c;
         box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.1);
         width: 80%;
-        height: 80px;
+        margin-bottom: 10px;
     }
 
     button {
@@ -41,12 +47,26 @@ require_once '../templates/header.php';
         border: 0;
         margin-top: 20px;
     }
+
+    select {
+        width: 80%;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #f8f8f8;
+        border: 2px solid #ccc;
+        outline-color: #001e3c;
+        box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
 </style>
 <div class="container">
     <?php
     $nisn = $_GET['nisn'];
 
-    $query = "SELECT FROM siswa WHERE nisn = $nisn";
+    $query = "SELECT * FROM siswa WHERE nisn = $nisn";
     $result = mysqli_query($koneksi, $query);
     $data = mysqli_fetch_assoc($result);
     ?>
@@ -67,7 +87,11 @@ require_once '../templates/header.php';
         <br>
         <label>Kelas</label>
         <br>
-        <input type="text" name="id_kelas" placeholder="masukan kelas..." value="<?php echo $data['id_kelas']; ?>" required="" />
+        <select name="id_kelas" id="">
+            <?php foreach ($read as $r) : ?>
+                <option value="<?= $r['id_kelas'] ?>"><?= $r['nama_kelas'] ?></option>
+            <?php endforeach; ?>
+        </select>
         <br>
         <label>No Telp</label>
         <br>
@@ -76,6 +100,14 @@ require_once '../templates/header.php';
         <label>Alamat</label>
         <br>
         <textarea name="alamat" placeholder="masukan alamat..." value="<?php echo $data['alamat']; ?>" required=""></textarea>
+        <br>
+        <label>Nominal</label>
+        <br>
+        <select name="id_spp" id="">
+            <?php foreach ($readd as $r) : ?>
+                <option value="<?= $r['id_spp'] ?>"><?= $r['nominal'] ?></option>
+            <?php endforeach; ?>
+        </select>
         <br>
         <button type="submit"><b>SUBMIT</b></button>
     </form>

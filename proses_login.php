@@ -22,14 +22,14 @@ if (isset($_POST['masuk'])) {
         } else {
             echo "<script>
             alert('password salah');
-            window.location.href = 'login.php'; 
+            window.location.href = 'index.php'; 
             </script>";
         }
     } else {
         echo "<script>
         alert('username salah');
-        window.location.href = 'login.php'; 
+        window.location.href = 'index.php'; 
     </script>";
     }
-    return header("Location: login.php");
+    return header("Location: index.php");
 }

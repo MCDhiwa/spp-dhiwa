@@ -3,7 +3,7 @@ body {
   padding: 0px;
   /* background-color: #1b203d; */
   background-color: white;
-  overflow: hidden;
+  overflow: auto;
   font-family: system-ui;
 }
 
@@ -250,5 +250,4 @@ th {
 
 .container {
   margin-left: 50px;
-
 }

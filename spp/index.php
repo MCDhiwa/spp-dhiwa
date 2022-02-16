@@ -35,17 +35,12 @@ require_once '../templates/header.php';
     }
 </style>
 <div class="container">
-    <h1>Siswa</h1>
-    <a href="input.php" class="anchor">+ Tambah data siswa</a>
+    <h1>Kelas</h1>
+    <a href="input.php" class="anchor">+ Tambah data SPP</a>
     <table>
         <tr>
-            <td style="padding: 10px;">Nisn</td>
-            <td>Nis</td>
-            <td>Password</td>
-            <td>Nama</td>
-            <td>Kelas</td>
-            <td>No Telp</td>
-            <td>Alamat</td>
+            <td style="padding: 10px;">Id SPP</td>
+            <td>Tahun</td>
             <td>Nominal</td>
             <td>Aksi</td>
         </tr>
@@ -53,7 +48,7 @@ require_once '../templates/header.php';
         <tbody>
             <?php
             // jalankan query untuk menampilkan semua data diurutkan berdasarkan idpelanggan
-            $query = "SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas JOIN spp ON siswa.id_spp = spp.id_spp";
+            $query = "SELECT * FROM spp";
             $result = mysqli_query($koneksi, $query);
             //mengecek apakah ada error ketika menjalankan query
             if (!$result) {
@@ -68,18 +63,13 @@ require_once '../templates/header.php';
             ?>
 
                 <tr>
-                    <td><?php echo $row['nisn'] ?></td>
-                    <td><?php echo $row['nis'] ?></td>
-                    <td><?php echo $row['password'] ?></td>
-                    <td><?php echo $row['nama'] ?></td>
-                    <td><?php echo $row['nama_kelas'] ?></td>
-                    <td><?php echo $row['no_telp'] ?></td>
-                    <td><?php echo $row['alamat'] ?></td>
+                    <td><?php echo $row['id_spp'] ?></td>
+                    <td><?php echo $row['tahun'] ?></td>
                     <td><?php echo $row['nominal'] ?></td>
                     <td>
-                        <a class="anchor" href="edit.php?nisn=<?= $row['nisn']; ?>">Edit </a>
+                        <a class="anchor" href="edit.php?id_spp=<?= $row['id_spp']; ?>">Edit </a>
                         <span>|</span>
-                        <a class="anchor" href="delete.php?nisn=<?php echo $row['nisn']; ?>" oneclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                        <a class="anchor" href="delete.php?id_spp=<?php echo $row['id_spp']; ?>" oneclick="return confirm ('apakah anda yakin?')">Hapus</a>
                     </td>
                 </tr>
 
@@ -90,7 +80,6 @@ require_once '../templates/header.php';
         </tbody>
     </table>
 </div>
-
 <?php
 require_once '../templates/footer.php';
 ?>

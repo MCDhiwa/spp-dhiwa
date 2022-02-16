@@ -99,7 +99,7 @@ $readd = readdata($resultSiswa);
         <br>
         <label>Alamat</label>
         <br>
-        <textarea name="alamat" placeholder="masukan alamat..." value="<?php echo $data['alamat']; ?>" required=""></textarea>
+        <textarea name="alamat" placeholder="masukan alamat..." required=""><?php echo $data['alamat']; ?></textarea>
         <br>
         <label>Nominal</label>
         <br>

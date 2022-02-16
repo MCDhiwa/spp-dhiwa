@@ -3,7 +3,7 @@ session_start();
 $servername = "localhost";
 $username   = "root";
 $password   = "";
-$database   = "db_spp";
+$database   = "db_spp_dhiwa";
 
 $koneksi = mysqli_connect($servername, $username, $password, $database);
 if (!$koneksi) {

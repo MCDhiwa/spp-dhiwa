@@ -103,7 +103,11 @@ $readd = readdata($resultSiswa);
         <br>
         <label>Alamat</label>
         <br>
+<<<<<<< HEAD
         <textarea name="alamat" required=""><?php echo $data['alamat']; ?></textarea>
+=======
+        <textarea name="alamat" placeholder="masukan alamat..." required=""><?php echo $data['alamat']; ?></textarea>
+>>>>>>> becbec21fab68c1ecc1333858b27a60a36781692
         <br>
         <label>Nominal</label>
         <br>

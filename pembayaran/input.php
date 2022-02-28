@@ -78,13 +78,13 @@ $readdSpp = readdata($resultSpp);
     <form action="proses_input.php" method="POST" class="in-container">
         <label>Id Pembayaran</label>
         <br>
-        <input type="text" name="id_pembayaran" placeholder="id terisi otomatis" required="" readonly="" />
+        <input type="text" placeholder="id terisi otomatis" required="" readonly="" />
         <br>
         <label>Id Petugas</label>
         <br>
         <select name="id_petugas" id="">
             <?php foreach ($readdPetugas as $r) : ?>
-                <option value="<?= $r['id_petugas'] ?>"><?= $r['id_petugas'] ?></option>
+                <option value="<?= $r['id_petugas'] ?>"><?= $r['nama_petugas'] ?></option>
             <?php endforeach; ?>
         </select>
         <br>
@@ -98,7 +98,7 @@ $readdSpp = readdata($resultSpp);
         <br>
         <label>Tanggal Bayar</label>
         <br>
-        <input type="text" name="tgl_dibayar" placeholder="masukan tanggal..." required="" />
+        <input type="date" name="tgl_dibayar" placeholder="masukan tanggal..." required="" />
         <br>
         <label>Bulan Bayar</label>
         <br>
@@ -110,15 +110,16 @@ $readdSpp = readdata($resultSpp);
         <br>
         <label>Angkatan</label>
         <br>
-        <select name="nominal" id="">
+        <select name="nominal" id="angkatan">
+            <option value="" disabled selected>-- Pilih Angkatan --</option>
             <?php foreach ($readdSpp as $r) : ?>
-                <option value="<?= $r['nominal'] ?>"><?= $r['tahun'] ?></option>
+                <option value="<?= $r['id_spp'] ?>"><?= $r['tahun'] ?></option>
             <?php endforeach; ?>
         </select>
         <br>
         <label>Jumlah Bayar</label>
         <br>
-        <input type="text" name="jumlah_dibayar" placeholder="masukan jumlah..." required="" />
+        <input type="text" name="jumlah_dibayar" id="jumlah" placeholder="masukan jumlah..." required="" />
         <br>
         <button type="submit"><b>SUBMIT</b></button>
     </form>

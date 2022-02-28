@@ -51,6 +51,15 @@
     // });
 </script>
 
+<script>
+    const angkatan = document.querySelector('#angkatan');
+    const jumlah = document.querySelector('#jumlah');
+
+    angkatan.addEventListener('change', (e) => {
+        jumlah.setAttribute('value', e.target.value);
+    })
+</script>
+
 </body>
 
 

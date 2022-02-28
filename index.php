@@ -22,7 +22,7 @@ if (isset($_SESSION['username'])) {
         }
 
         form {
-            width: 60%;
+            width: 50%;
             text-align: center;
         }
 
@@ -35,6 +35,7 @@ if (isset($_SESSION['username'])) {
             font-size: 12px;
             border: 0;
             margin-top: 20px;
+            text-align: center;
         }
 
         label {
@@ -54,7 +55,7 @@ if (isset($_SESSION['username'])) {
             outline-color: #001e3c;
         }
 
-        div {
+        .container-login {
             box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
             margin-top: 5%;
             padding: 50px;
@@ -64,34 +65,63 @@ if (isset($_SESSION['username'])) {
             background-color: white;
             display: flex;
             justify-content: center;
+            width: 30%;
         }
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+        }
+
+        .forget {
+            color: grey;
+            text-decoration: none;
+            width: 200px;
+            height: 0;
+            padding-top: 5px;
+            text-align: left;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 15px;
+            color: grey;
+        }
+
+        a:hover {
+            color: black;
+        }
+
+        .error {
+            color: white;
+            padding: 10px;
+            background-color: red;
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <div class="container-login">
         <form action="proses_login.php" method="POST">
             <h1><img src="https://elearning.smkti-baliglobal.sch.id/img/logo-ti2.png" width="200px" height="200px" alt=""></h1>
             <label>Username</label>
             <input type="text" name="username" placeholder="masukan username" required="" autofocus="">
             <label>Password</label>
             <input type="password" name="password" placeholder="masukan password" required="">
+            <div class="forget">
+                <a href="forget.php">Lupa password?</a>
+            </div><br>
             <button type="submit" name="masuk"><b>SUBMIT</b></button>
         </form>
     </div>
 
     <?php if (isset($_GET['pesan'])) { ?>
-        <div class="error">
-            <label>Oopps... <?php echo $_GET['pesan']; ?></label>
-        </div>
+        <p class="error">
+            <?php echo $_GET['pesan']; ?>
+        </p>
     <?php } ?>
-
 
 </body>
 

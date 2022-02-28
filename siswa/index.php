@@ -9,10 +9,6 @@ require_once '../templates/header.php';
         display: inline-block;
     }
 
-    table {
-        width: 95%;
-    }
-
     td {
         color: black;
         text-align: center;
@@ -52,7 +48,7 @@ require_once '../templates/header.php';
 
         <tbody>
             <?php
-            // jalankan query untuk menampilkan semua data diurutkan berdasarkan idpelanggan
+            // jalankan query untuk menampilkan semua data diurutkan berdasarkan id_kelas
             $query = "SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas JOIN spp ON siswa.id_spp = spp.id_spp";
             $result = mysqli_query($koneksi, $query);
             //mengecek apakah ada error ketika menjalankan query
@@ -61,7 +57,7 @@ require_once '../templates/header.php';
                     " - " . mysqli_error($koneksi));
             }
 
-            //buat perulangan untuk element tabel dari data pelanggan
+            //buat perulangan untuk element tabel dari data siswa
             //hasil query akan disimpan dalam variabel $data dalam bentuk array
             //kemudian dicetak dengan perulangan while
             while ($row = mysqli_fetch_assoc($result)) {
@@ -79,7 +75,7 @@ require_once '../templates/header.php';
                     <td>
                         <a class="anchor" href="edit.php?nisn=<?= $row['nisn']; ?>">Edit </a>
                         <span>|</span>
-                        <a class="anchor" href="delete.php?nisn=<?php echo $row['nisn']; ?>" oneclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                        <a class="anchor" href="delete.php?nisn=<?php echo $row['nisn']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
                     </td>
                 </tr>
 

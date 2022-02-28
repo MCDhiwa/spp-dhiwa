@@ -64,54 +64,34 @@ $readd = readdata($resultSiswa);
 </style>
 <div class="container">
     <?php
-    $nisn = $_GET['nisn'];
+    $id_petugas = $_GET['id_petugas'];
 
-    $query = "SELECT * FROM siswa WHERE nisn = $nisn";
+    $query = "SELECT * FROM petugas WHERE id_petugas = $id_petugas";
     $result = mysqli_query($koneksi, $query);
     $data = mysqli_fetch_assoc($result);
     ?>
-    <h1 style="margin-bottom: -3px;">Edit Siswa</h1>
+    <h1 style="margin-bottom: -3px;">Edit Petugas</h1>
     <span>Silahkan menginputkan data ulang dengan benar!</span>
     <form action="proses_edit.php" method="POST" class="in-container">
-        <label>Nisn</label>
+        <label>Id Petugas</label>
         <br>
-        <input type="text" name="nisn" value="<?php echo $data['nisn']; ?>" required="" />
+        <input type="text" name="id_petugas" value="<?php echo $data['id_petugas']; ?>" required="" />
         <br>
-        <label>Nis</label>
+        <label>Username</label>
         <br>
-        <input type="text" name="nis" value="<?php echo $data['nis']; ?>" required="" />
+        <input type="text" name="username" value="<?php echo $data['username']; ?>" required="" />
         <br>
         <label>Password</label>
         <br>
         <input type="password" name="password" value="<?php echo $data['password']; ?>" required="" />
         <br>
-        <label>Nama</label>
+        <label>Nama Petugas</label>
         <br>
-        <input type="text" name="nama" value="<?php echo $data['nama']; ?>" required="" />
+        <input type="text" name="nama_petugas" value="<?php echo $data['nama_petugas']; ?>" required="" />
         <br>
-        <label>Kelas</label>
+        <label>Level</label>
         <br>
-        <select name="id_kelas" id="">
-            <?php foreach ($read as $r) : ?>
-                <option value="<?= $r['id_kelas'] ?>"><?= $r['nama_kelas'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <label>No Telp</label>
-        <br>
-        <input type="text" name="no_telp" value="<?php echo $data['no_telp']; ?>" required="" />
-        <br>
-        <label>Alamat</label>
-        <br>
-        <textarea name="alamat" required=""><?php echo $data['alamat']; ?></textarea>
-        <br>
-        <label>Nominal</label>
-        <br>
-        <select name="id_spp" id="">
-            <?php foreach ($readd as $r) : ?>
-                <option value="<?= $r['id_spp'] ?>"><?= $r['nominal'] ?></option>
-            <?php endforeach; ?>
-        </select>
+        <input type="number" name="level" value="<?php echo $data['level']; ?>" required="" />
         <br>
         <button type="submit"><b>SUBMIT</b></button>
     </form>

@@ -9,10 +9,6 @@ require_once '../templates/header.php';
         display: inline-block;
     }
 
-    table {
-        width: 95%;
-    }
-
     td {
         color: black;
         text-align: center;
@@ -50,6 +46,7 @@ require_once '../templates/header.php';
             // jalankan query untuk menampilkan semua data diurutkan berdasarkan idpelanggan
             $query = "SELECT * FROM kelas";
             $result = mysqli_query($koneksi, $query);
+            $i = 1;
             //mengecek apakah ada error ketika menjalankan query
             if (!$result) {
                 die("Query Error: " . mysqli_errno($koneksi) .
@@ -63,13 +60,13 @@ require_once '../templates/header.php';
             ?>
 
                 <tr>
-                    <td><?php echo $row['id_kelas'] ?></td>
+                    <td><?php echo $i++ ?></td>
                     <td><?php echo $row['nama_kelas'] ?></td>
                     <td><?php echo $row['kompetensi_keahlian'] ?></td>
                     <td>
                         <a class="anchor" href="edit.php?id_kelas=<?= $row['id_kelas']; ?>">Edit </a>
                         <span>|</span>
-                        <a class="anchor" href="delete.php?id_kelas=<?php echo $row['id_kelas']; ?>" oneclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                        <a class="anchor" href="delete.php?id_kelas=<?php echo $row['id_kelas']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
                     </td>
                 </tr>
 

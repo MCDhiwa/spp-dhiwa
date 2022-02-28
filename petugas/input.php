@@ -43,20 +43,28 @@ require_once '../templates/header.php';
     }
 </style>
 <div class="container">
-    <h1 style="margin-bottom: -3px;">Input Kelas</h1>
+    <h1 style="margin-bottom: -3px;">Input Petugas</h1>
     <span>Silahkan menginputkan data dengan benar!</span>
     <form action="proses_input.php" method="POST" class="in-container">
-        <label>Id Kelas</label>
+        <label>Id Petugas</label>
         <br>
-        <input type="text" name="id_kelas" placeholder="id terisi otomatis" required="" readonly="" />
+        <input type="text" name="id_petugas" placeholder="id terisi otomatis" required="" readonly="" />
         <br>
-        <label>Nama Kelas</label>
+        <label>Username</label>
         <br>
-        <input type="text" name="nama_kelas" placeholder="masukan nama kelas..." required="" />
+        <input type="text" name="username" placeholder="masukan username..." required="" />
         <br>
-        <label>Kompetensi Keahlian</label>
+        <label>Password</label>
         <br>
-        <input type="text" name="kompetensi_keahlian" placeholder="masukan kompetensi keahlian..." required="" />
+        <input type="password" name="password" placeholder="masukan password..." required="" />
+        <br>
+        <label>Nama Petugas</label>
+        <br>
+        <input type="text" name="nama_petugas" placeholder="masukan nama petugas..." required="" />
+        <br>
+        <label>Level</label>
+        <br>
+        <input type="number" name="level" placeholder="masukan level petugas..." required="" />
         <br>
         <button type="submit"><b>SUBMIT</b></button>
     </form>

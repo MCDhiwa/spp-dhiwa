@@ -10,7 +10,7 @@ $no_telp = $_POST['no_telp'];
 $alamat = $_POST['alamat'];
 $id_spp = $_POST['id_spp'];
 
-$query = "INSERT INTO siswa(nisn, nis, password, nama, id_kelas, no_telp, alamat, id_spp) VALUES ('$nisn', '$nis', '$password', '$nama', '$id_kelas', '$no_telp', '$alamat', '$id_spp')";
+$query = "UPDATE siswa SET nis= '$nis', password='$password', nama= '$nama', id_kelas= '$id_kelas', no_telp= '$no_telp', alamat= '$alamat',id_spp= '$id_spp' WHERE nisn = '$nisn'";
 
 $result = mysqli_query($koneksi, $query);
 

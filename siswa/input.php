@@ -3,6 +3,7 @@ require_once '../templates/header.php';
 $query = "SELECT * FROM kelas";
 $result = mysqli_query($koneksi, $query);
 $read = readdata($result);
+
 $readSiswa = "SELECT * FROM spp";
 $resultSiswa = mysqli_query($koneksi, $readSiswa);
 $readd = readdata($resultSiswa);

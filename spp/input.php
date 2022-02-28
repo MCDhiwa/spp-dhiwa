@@ -48,7 +48,7 @@ require_once '../templates/header.php';
     <form action="proses_input.php" method="POST" class="in-container">
         <label>Id SPP</label>
         <br>
-        <input type="text" name="id_spp" placeholder="masukan id..." required="" />
+        <input type="text" name="id_spp" placeholder="id terisi otomatis" required="" readonly="" />
         <br>
         <label>Tahun</label>
         <br>

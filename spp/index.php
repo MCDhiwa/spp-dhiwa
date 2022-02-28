@@ -9,10 +9,6 @@ require_once '../templates/header.php';
         display: inline-block;
     }
 
-    table {
-        width: 95%;
-    }
-
     td {
         color: black;
         text-align: center;
@@ -35,7 +31,7 @@ require_once '../templates/header.php';
     }
 </style>
 <div class="container">
-    <h1>Kelas</h1>
+    <h1>SPP</h1>
     <a href="input.php" class="anchor">+ Tambah data SPP</a>
     <table>
         <tr>
@@ -47,29 +43,30 @@ require_once '../templates/header.php';
 
         <tbody>
             <?php
-            // jalankan query untuk menampilkan semua data diurutkan berdasarkan idpelanggan
+            // jalankan query untuk menampilkan semua data diurutkan berdasarkan id_spp
             $query = "SELECT * FROM spp";
             $result = mysqli_query($koneksi, $query);
+            $i = 1;
             //mengecek apakah ada error ketika menjalankan query
             if (!$result) {
                 die("Query Error: " . mysqli_errno($koneksi) .
                     " - " . mysqli_error($koneksi));
             }
 
-            //buat perulangan untuk element tabel dari data pelanggan
+            //buat perulangan untuk element tabel dari data spp
             //hasil query akan disimpan dalam variabel $data dalam bentuk array
             //kemudian dicetak dengan perulangan while
             while ($row = mysqli_fetch_assoc($result)) {
             ?>
 
                 <tr>
-                    <td><?php echo $row['id_spp'] ?></td>
+                    <td><?php echo $i++ ?></td>
                     <td><?php echo $row['tahun'] ?></td>
                     <td><?php echo $row['nominal'] ?></td>
                     <td>
                         <a class="anchor" href="edit.php?id_spp=<?= $row['id_spp']; ?>">Edit </a>
                         <span>|</span>
-                        <a class="anchor" href="delete.php?id_spp=<?php echo $row['id_spp']; ?>" oneclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                        <a class="anchor" href="delete.php?id_spp=<?php echo $row['id_spp']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
                     </td>
                 </tr>
 
